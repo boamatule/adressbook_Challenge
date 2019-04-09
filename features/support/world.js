@@ -11,11 +11,12 @@ class AddressBookWorld {
     this.browser = await puppeteer.launch({headless: false, slowmo: 100})
     this.page = await this.browser.newPage()
     await this.page.goto(HOME_PAGE)
-    }
+  }
 
   async closeHomePage() {
     await this.browser.close()
     }
+    
   async pageHasTextContent(contacts) {
     const pageContent = await this.page.content()
     const actualContent = pageContent.match(contacts)[0]
@@ -28,7 +29,13 @@ class AddressBookWorld {
     await this.page.waitForSelector(btnSelector)
     await this.page.click(btnSelector)
   }
-  
+
+  async fillFormField(field, content) {
+    const inputSelector = `#contact-${field}`
+    await this.page.waitForSelector(inputSelector)
+    this.inputElement = await this.page.$(inputSelector)
+    await this.inputElement.type(content)
+  }
 }
 
 setWorldConstructor(AddressBookWorld)
