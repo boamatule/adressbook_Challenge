@@ -22,6 +22,7 @@
     "watch": "webpack --progress --watch --mode=development",
     "cucumber": "superstatic -p 3000 2> /dev/null & cucumber-js; lsof -ti tcp:3000 | xargs kill"
   },
+  
   "dependencies": {
     "@babel/core": "7.4.3",
     "babel-loader": "7.1.5"

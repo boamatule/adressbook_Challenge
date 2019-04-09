@@ -12,16 +12,16 @@ class AddressBookWorld {
     this.page = await this.browser.newPage()
     await this.page.goto(HOME_PAGE)
   }
-
+  
   async closeHomePage() {
     await this.browser.close()
-    }
-    
-  async pageHasTextContent(contacts) {
-    const pageContent = await this.page.content()
-    const actualContent = pageContent.match(contacts)[0]
+  }
+
+  async pageHasTextContent(expectedContent) {
+  const pageContent = await this.page.content()
+  const actualContent = pageContent.match(expectedContent)[0]
   
-    expect(actualContent).to.be.eq(expectedContent)
+  expect(actualContent).to.be.eq(expectedContent)
   }
 
   async clickOnAddContactBtn() {
