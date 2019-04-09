@@ -4,5 +4,11 @@
   "main": "index.js",
   "repository": "git@github.com:SnailCoder1/adressbook_Challenge.git",
   "author": "boa <boa.matule@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^5.1.0",
+    "puppeteer": "^1.14.0",
+    "superstatic": "^6.0.4"
+  }
 }
