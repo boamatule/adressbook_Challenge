@@ -1,0 +1,8 @@
+{
+  "name": "address-book",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:SnailCoder1/adressbook_Challenge.git",
+  "author": "boa <boa.matule@gmail.com>",
+  "license": "MIT"
+}
