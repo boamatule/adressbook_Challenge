@@ -16,14 +16,19 @@ class AddressBookWorld {
   async closeHomePage() {
     await this.browser.close()
     }
-    
-    async pageHasTextContent(expectedContent) {
-      const pageContent = await this.page.content()
-      const actualContent = pageContent.match(expectedContent)[0]
+  async pageHasTextContent(contacts) {
+    const pageContent = await this.page.content()
+    const actualContent = pageContent.match(contacts)[0]
   
-      expect(actualContent).to.be.eq(expectedContent)
-    }
+    expect(actualContent).to.be.eq(expectedContent)
+  }
 
+  async clickOnAddContactBtn() {
+    const btnSelector = '.add-contact'
+    await this.page.waitForSelector(btnSelector)
+    await this.page.click(btnSelector)
+  }
+  
 }
 
 setWorldConstructor(AddressBookWorld)
