@@ -1,7 +1,7 @@
 const { After, Given, Then, When } = require('cucumber')
 
 After(async function() {
-    return await this.closeHomePage()
+  return await this.closeHomePage()
 })
 
 Given('I visit the site', async function() {
@@ -9,7 +9,7 @@ Given('I visit the site', async function() {
 })
 
 Then('I should see {string}', async function(content) {
-  return 'pending'
+  return await this.pageHasTextContect(content)
 })
 
 When('I click {string}', async function(string) {
