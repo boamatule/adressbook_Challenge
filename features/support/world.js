@@ -19,13 +19,6 @@ class AddressBookWorld {
     await this.browser.close()
   }
 
-  async pageHasTextContent(expectedContent) {
-  const pageContent = await this.page.content()
-  const actualContent = pageContent.match(expectedContent)[0]
-  
-  expect(actualContent).to.be.eq(expectedContent)
-  }
-
   async clickOnButton(btnName) {
     const btnSelector = this.btnSelectorFromName(btnName.toLowerCase())
     await this.page.waitForSelector(btnSelector)
@@ -46,7 +39,14 @@ class AddressBookWorld {
     )
     expect(actualCount).to.be.eq(expectedCount)
   }
-  
+
+  async pageHasTextContent(expectedContent) {
+    const pageContent = await this.page.content()
+    const actualContent = pageContent.match(expectedContent)[0]
+    
+    expect(actualContent).to.be.eq(expectedContent)
+  }
+
   async pageDoesNotHaveTextContent(unexpectedContent) {
     const pageContent = await this.page.content()
     let actualContent = pageContent.match(unexpectedContent)

@@ -44,6 +44,7 @@ const renderContacts = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     renderContacts()
+
     const addContactForm = document.querySelector('.new-contact-form')
     addContactForm.addEventListener('submit', event => {
         event.preventDefault()
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
         storage.setItem('contacts', JSON.stringify([contact]))
         renderContacts()
+
     })
 
         const {
@@ -73,5 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
+    
     })
 
