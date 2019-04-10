@@ -25,6 +25,7 @@ Then('I should have {int} contact in my address book', async function (contactCo
   return await this.checkContactStorageCount(contactCount)
 });
 
-Then('I should not see {string}', async function(string) {
-  return 'pending'
+Then('I should not see {string}', async function (content) {
+  return await this.pageDoesNotHaveTextContent(content)
+
 });
