@@ -1,8 +1,10 @@
-const { setWorldConstructor } = require('cucumber')
+const { setWorldConstructor, setDefaultTimeout} = require('cucumber')
 const { expect } = require('chai')
 const puppeteer = require('puppeteer')
 
 const HOME_PAGE = 'http://localhost:3000'
+
+setDefaultTimeout(60 * 1000);
 
 class AddressBookWorld {
   constructor() {}
