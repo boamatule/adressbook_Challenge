@@ -1,8 +1,10 @@
-const { setWorldConstructor } = require('cucumber')
+const { setWorldConstructor, setDefaultTimeout} = require('cucumber')
 const { expect } = require('chai')
 const puppeteer = require('puppeteer')
 
 const HOME_PAGE = 'http://localhost:3000'
+
+setDefaultTimeout(60 * 1000);
 
 class AddressBookWorld {
   constructor() {}
@@ -37,6 +39,15 @@ class AddressBookWorld {
     await this.inputElement.type(content)
   }
 
+  
+  async checkContactStorageCount(expectedCount) {
+    const actualCount = await this.page.evaluate(
+      () => JSON.parse(window.localStorage.getItem('contacts')).length
+      )
+
+    expect(actualCount).to.be.eq(expectedCount)
+  }
+
   btnSelectorFromName(btnName) {
     switch (btnName) {
       case 'add contact':
@@ -50,6 +61,7 @@ class AddressBookWorld {
         break
     }
   }
+
 }
 
 setWorldConstructor(AddressBookWorld)
