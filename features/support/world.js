@@ -39,6 +39,15 @@ class AddressBookWorld {
     await this.inputElement.type(content)
   }
 
+  
+  async checkContactStorageCount(expectedCount) {
+    const actualCount = await this.page.evaluate(
+      () => JSON.parse(window.localStorage.getItem('contacts')).length
+      )
+
+    expect(actualCount).to.be.eq(expectedCount)
+  }
+
   btnSelectorFromName(btnName) {
     switch (btnName) {
       case 'add contact':
@@ -52,6 +61,7 @@ class AddressBookWorld {
         break
     }
   }
+
 }
 
 setWorldConstructor(AddressBookWorld)
