@@ -21,7 +21,7 @@ Feature: Create contacts
     And I should not see "You have no contacts in your address book"
 
 
-  Scenario: User creates multiple contacts
+      Scenario: User creates multiple contacts
     Given I visit the site
     Then I should see "Contacts"
     And I should see "You have no contacts in your address book"
