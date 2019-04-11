@@ -1,17 +1,19 @@
-const renderContacts = () => {
-    const storage = window.localStorage;
-    const contacts = JSON.parse(storage.getItem('contacts'));
-   
-    let div = document.querySelector('.contact-list');
-  
-    if (contacts) {
-      div.innerHTML = '';
-  
-      const ul = document.createElement('ul');
-  
-      contacts.forEach(contact => {
-        let li = document.createElement('li');
-        li.innerHTML = `
+  const storage = window.localStorage;
+  const renderContacts = () => {
+  const contacts = JSON.parse(storage.getItem("contacts"));
+
+  let div = document.querySelector(".contact-list");
+
+  if (contacts) {
+    div.innerHTML = "";
+
+    const ul = document.createElement("ul");
+
+    contacts.forEach(contact => {
+      let li = document.createElement("li");
+      li.id = contact.id;
+      li.setAttribute("class", "list-reset");
+      li.innerHTML = `
           <div class="card">
             <div class="image">
               <img src="https://ca-address-book.herokuapp.com/images/pine.jpg" />
@@ -24,7 +26,7 @@ const renderContacts = () => {
               <a href="https://www.twitter.com/${ contact.twitter}">@${contact.twitter}</a>
             </div>
           </div>
-       `;
+      `;
         ul.appendChild(li);
       })
   
@@ -54,11 +56,16 @@ const renderContacts = () => {
       storage.setItem("contacts", JSON.stringify(contacts));
       renderContacts();
     });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderContacts()
+      const addContactForm = document.querySelector("#new-contact-form")
     addContactForm.addEventListener("submit", event => {
-      event.preventDefault();
-      const storage = window.localStorage;
-  
-      const {
+          event.preventDefault()
+          const storage = window.localStorage
+
+          const {
         name,
         email,
         phone,
@@ -84,5 +91,7 @@ const renderContacts = () => {
         addContactForm.reset();
 
     });
+
+  });
 });
 

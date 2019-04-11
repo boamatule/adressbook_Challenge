@@ -8,8 +8,7 @@ setDefaultTimeout(60 * 1000);
 
 class AddressBookWorld {
   constructor() {}
-
-  async openHomePage() {
+async openHomePage() {
     this.browser = await puppeteer.launch({headless: false, slowmo: 100})
     this.page = await this.browser.newPage()
     await this.page.goto(HOME_PAGE)
