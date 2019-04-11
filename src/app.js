@@ -1,79 +1,76 @@
-  const storage = window.localStorage;
-  const renderContacts = () => {
-  const contacts = JSON.parse(storage.getItem("contacts"));
+const renderContacts = () => {
+  const storage = window.localStorage
+  // Read all the contacts from the storage
+  const contacts = JSON.parse(storage.getItem('contacts'))
 
-  let div = document.querySelector(".contact-list");
+  // Select the container we will use to list the contacts 
+  let div = document.querySelector('.contact-list')
 
   if (contacts) {
-    div.innerHTML = "";
+    div.innerHTML = ''
 
-    const ul = document.createElement("ul");
+    // render the contacts
+    const ul = document.createElement('ul')
 
+    // For every contact in our array of contacts, we will
+    // create a li element that will contain a card with
+    // all the information of the contact
     contacts.forEach(contact => {
-      let li = document.createElement("li");
-      li.id = contact.id;
-      li.setAttribute("class", "list-reset");
+      let li = document.createElement('li')
       li.innerHTML = `
-          <div class="card">
-            <div class="image">
-              <img src="https://ca-address-book.herokuapp.com/images/pine.jpg" />
-            </div>
-            <div class="content">
-              <h1>${ contact.name }</h1>
-              <h2>${ contact.company }</h2>
-              <p>${ contact.notes }</p> 
-              ${ contact.email } | 
-              <a href="https://www.twitter.com/${ contact.twitter}">@${contact.twitter}</a>
-            </div>
+        <div class="card">
+          <div class="content">
+            <h1>${ contact.name }</h1>
+            <h2>${ contact.company }</h2>
+            <p>${ contact.notes }</p> 
+            ${ contact.email } | 
+            <a href="https://www.twitter.com/${ contact.twitter}">@${contact.twitter}</a>
           </div>
-      `;
-        ul.appendChild(li);
-      })
-  
-      div.appendChild(ul) 
-    } else { 
-      div.innerHTML = '<p>You have no contacts in your address book</p>' 
-    }
-  };
+        </div>`
+      // Add the contact's li to the unordered list we created earlier
+      ul.appendChild(li)
+    })
 
+    // Lastly, append the list to the contact-list container.
+    div.appendChild(ul) 
+  } else { 
+    div.innerHTML = '<p>You have no contacts in your address book</p>' 
+  }
+}
 
-  document.addEventListener("DOMContentLoaded", () => {
-    renderContacts();
-  
-    const addContactForm = document.querySelector(".new-contact-form");
-    const deleteButton = document.querySelector(".contact-list");
-  
-    deleteButton.addEventListener("click", event => {
-      let id = event.target.parentNode.id;
-      let contacts = JSON.parse(storage.getItem("contacts")) || [];
-  
-      contacts.forEach(contact => {
-        if (contact.id == id) {
-          contacts.splice(contacts.indexOf(contact), 1);
-        } else return;
-      });
-  
-      storage.setItem("contacts", JSON.stringify(contacts));
-      renderContacts();
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  renderContacts();
 
+  const addContactForm = document.querySelector(".new-contact-form");
+  // const deleteButton = document.querySelector(".contact-list");
 
-    document.addEventListener("DOMContentLoaded", () => {
-      renderContacts()
-      const addContactForm = document.querySelector("#new-contact-form")
+  // deleteButton.addEventListener("click", event => {
+  //   let id = event.target.parentNode.id;
+  //   let contacts = JSON.parse(storage.getItem("contacts")) || [];
+
+  //   contacts.forEach(contact => {
+  //     if (contact.id == id) {
+  //       contacts.splice(contacts.indexOf(contact), 1);
+  //     } else return;
+  //   });
+
+  //   storage.setItem("contacts", JSON.stringify(contacts));
+  //   renderContacts();
+  // });
+
     addContactForm.addEventListener("submit", event => {
-          event.preventDefault()
-          const storage = window.localStorage
+      event.preventDefault();
+      const storage = window.localStorage
 
-          const {
+      const {
         name,
         email,
-        phone,
+        phone,  
         company,
         notes,
         twitter
       } = addContactForm.elements;
-  
+
       const contact = {
         id: Date.now(),
         name: name.value,
@@ -83,15 +80,11 @@
         notes: notes.value,
         twitter: twitter.value
       };
-        
-        let contacts = JSON.parse(storage.getItem("contacts")) || [];
-        contacts.push(contact);
-        storage.setItem("contacts", JSON.stringify(contacts));
-        renderContacts();
-        addContactForm.reset();
 
+      let contacts = JSON.parse(storage.getItem('contacts')) || [];
+      contacts.push(contact);
+      storage.setItem('contacts', JSON.stringify(contacts));
+      renderContacts();
+      addContactForm.reset();
     });
-
-  });
 });
-
