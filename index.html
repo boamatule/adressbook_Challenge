@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Address book</title>
-
+  <title>Address book</title><br><br>
+  <h1 style="text-align: center;">Address Book</h1><br>
   <script type="text/javascript">
     function showHideDiv(ele) {
       var srcElement = document.getElementById(ele);
@@ -25,45 +25,36 @@
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 
 </head>
-
+<br><br>
 <body>
 
-    <script src="./dist/bundle.js"></script>
+  <script src="./dist/bundle.js"></script>
 
-        <h1>Contacts</h1>
-        <input type="button" value="Add Contacts" onClick="showHideDiv('divMsg')"/><br><br>
-        <div id="divMsg" style="background-color: #006969; color: #ffffff; height: 200px; width: 200px; text-align: center; display:none">
+  <!--<h1 style="text-align: center;">Address Book</h1><br><br> -->
+
+    <input type="button" value="Add Contacts" onClick="showHideDiv('divMsg')"/><br><br>
+    <div id="divMsg" style="background-color: #006969; color: #ffffff; height: 400px; width: 800px; text-align: center; display:none">
             
-        
-
-
-  <form class="new-contact-form" action="#">
     
+  <form class="new-contact-form" action="#">
     <label for="name">Name</label>
     <input id="contact-name" name="name" type="text">
-
     <label for="email">Email</label>
     <input id="contact-email" name="email" type="email">
-
     <label for="phone">Phone</label>
     <input id="contact-phone" name="phone" type="text">
-
     <label for="company">Company</label>
     <input id="contact-company" name="company" type="text">
-
     <label for="notes">Notes</label>
     <textarea id="contact-notes" name="notes" type="text"></textarea>
-    
     <label for="twitter">Twitter</label>
     <input id="contact-twitter" name="twitter" type="text">
-
-    
-    <input class="save-contact" type="submit" value="Save Contact" onClick="showHideDiv('divMsg')"/><br><br>
-
+  <input class="save-contact" type="submit" value="Save Contact" onClick="showHideDiv('divMsg')"/><br><br>
 
   </form>
-  
-</div>
+  </div>
+
+  <br><br><br><br>
 
 
   <div class="contact-list">

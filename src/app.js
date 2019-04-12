@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderContacts();
 
   const addContactForm = document.querySelector(".new-contact-form");
-  // const deleteButton = document.querySelector(".contact-list");
+  const deleteButton = document.querySelector(".contact-list");
 
   // deleteButton.addEventListener("click", event => {
   //   let id = event.target.parentNode.id;
