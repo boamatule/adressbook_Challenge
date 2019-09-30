@@ -11,66 +11,64 @@
 </head>
 
   <body>
-    <div class="top bg-teal-500 p-6" style ="text-align:center"><h1>Address Book</h1></div>
+    <div class="top bg-teal-500 p-10" style ="text-align:center"><h3>ADDRESS BOOK</h3></div>
 
     <div class="button" style ="text-align:center"> 
+        <div style="margin-top: -17px; margin-bottom:30px"></div>
         <button onclick="showAddContactForm()" class="active:outline-none focus:outline-none top1 bg-transparent text-black border border-black hover:bg-black hover:text-white py-4 px-6 border border-black hover:border-transparent" id="add-contact">Add Contact</button>
         <button style="display: none" onclick="hideShowAddContactForm()" class="active:outline-none focus:outline-none top1 bg-transparent text-black border border-black hover:bg-black hover:text-white py-4 px-6 border border-black hover:border-transparent" id="add-contact-hide">Hide Contact Form</button>
         <button  id="edit-contact" onclick="Button_visibility_Edit()" class="active:outline-none focus:outline-none top1 bg-transparent text-black border border-black hover:bg-black hover:text-white py-4 px-6 border border-black hover:border-transparent">Edit Contact</button>
         <button id="delete-contact" onclick="Button_visibility_Delete()" class="active:outline-none focus:outline-none button_card_delete top1 bg-transparent text-black border border-black hover:bg-black hover:text-white py-4 px-6 border border-black hover:border-transparent" >Delete Contact</button> 
     </div>
 
-
     <!-- <div class="contact-list">
     </div> -->
 
-<!-- 
+
     <div>
       <p>You have no contacts in your address book</p>
-    </div> -->
+    </div>
 
     <div class="container mx-auto">
 
 
     <form  action="#" style="display: none" id="new-contact-form" class="w-full">
       <div style="margin-top: -17px; margin-bottom:30px"></div>
-          
-      
 
       </div>
-      <div class="flex items-center border-b border-b-2 border-black py-2">
-        <input id="contact-name" name="name" type="text" placeholder="Name" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Full name" required>
-      </div>
-      <div class="flex items-center border-b border-b-2 border-black py-2">
-        <input id="contact-company" name="company" type="text" placeholder="Company" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Full name">
-      </div>
-      <div class="flex items-center border-b border-b-2 border-black py-2">
-        <input id="contact-email" name="email" type="text" placeholder="Email" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="E-mail">
-      </div>
-      <div class="flex items-center border-b border-b-2 border-black py-2">
-        <input id="contact-phone" name="phone" type="text" placeholder="Phone Number" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Phone" required>
-      </div>
-      <div class="flex items-center border-b border-b-2 border-black py-2">
-        <input id="contact-twitter" name="twitter" type="text" placeholder="Twitter" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Twitter">
-      </div>
-      <div class="flex items-center border-b border-b-2 border-black py-2">
-        <input rows="5" id="contact-notes" name="notes" type="text" placeholder="Notes" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Notes">
-      </div>
-
-      <!-- <button style = "width:100%" id="save-contact" type="submit" class="pt-5 pb-4 bg-green mt-10 hover:bg-green-dark text-white text-xl font-bold py-2 px-4">Save Contact</button> -->
+        <div class="flex items-center border-b border-b-2 border-black py-2">
+          <input id="contact-name" name="name" type="text" placeholder="Name" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Full name" required>
+        </div>
+        <div class="flex items-center border-b border-b-2 border-black py-2">
+          <input id="contact-company" name="company" type="text" placeholder="Company" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Full name">
+        </div>
+        <div class="flex items-center border-b border-b-2 border-black py-2">
+          <input id="contact-email" name="email" type="text" placeholder="Email" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="E-mail">
+        </div>
+        <div class="flex items-center border-b border-b-2 border-black py-2">
+          <input id="contact-phone" name="phone" type="text" placeholder="Phone Number" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Phone" required>
+        </div>
+        <div class="flex items-center border-b border-b-2 border-black py-2">
+          <input id="contact-twitter" name="twitter" type="text" placeholder="Twitter" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Twitter">
+        </div>
+        <div class="flex items-center border-b border-b-2 border-black py-2">
+          <input rows="5" id="contact-notes" name="notes" type="text" placeholder="Notes" class="appearance-none bg-transparent border-none w-full text-black-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" aria-label="Notes">
+        </div>
 
       <div class="button" style ="text-align:center"> 
-      <button class=" active:outline-none focus:outline-none top1 bg-transparent text-black border border-black hover:bg-black hover:text-white py-4 px-6 border border-black hover:border-transparent" >
-          Save Contact
-        </button>
+        <div style="margin-top: 17px; margin-bottom:30px">
+          <button class="active:outline-none focus:outline-none top1 bg-transparent text-black border border-black hover:bg-black hover:text-white py-4 px-6 border border-black hover:border-transparent" >
+            Save Contact
+          </button>
+        </div>
+      </div>
 
+      </div>
+    </form>
 
-    </div>
+    <div id="contact-list" class="h-16 w-16 rounded-full mx-auto"></div>
 
-    </div>
-  </form>
-
-    <div id="contact-list" class="flex mb-4"></div>
+  
   </div>
 
 
@@ -80,7 +78,7 @@
 
     <script src="./dist/bundle.js"></script>  
 
-    <!-- <script src="./helpers.js"></script> -->
+    <script src="./helpers.js"></script>
   </body>
 
 </html>

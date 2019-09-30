@@ -13,8 +13,9 @@ const renderContacts = () => {
       li.innerHTML = `
         <div class="card">
           <div class="image">
-            <img src="https://ca-address-book.herokuapp.com/images/pine.jpg" />
+            <img class="h-16 w-16 rounded-full mx-auto" src="avatar.jpg" />
           </div>
+
           <div class="content">
             <h1>${ contact.name }</h1>
             <h2>${ contact.company }</h2>
@@ -59,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
       twitter: twitter.value,
     }
 
-    // console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
+    console.log(`Saving the following contact: ${JSON.stringify(contact)}`)
     let contacts = JSON.parse(storage.getItem('contacts')) || []
     contacts.push(contact)
     storage.setItem('contacts', JSON.stringify(contacts))
-    // renderContacts() 
+    renderContacts() 
   })
 })
 
