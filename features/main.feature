@@ -20,7 +20,12 @@ Feature: Create contacts
     And I should see "John Doe"
     And I should not see "You have no contacts in your address book"
 
+<<<<<<< HEAD
     Scenario: User creates multiple contacts
+=======
+
+  Scenario: User creates multiple contacts
+>>>>>>> 2502bf761fdec9a4ae757449e32719ef799e02ea
     Given I visit the site
     Then I should see "Contacts"
     And I should see "You have no contacts in your address book"
